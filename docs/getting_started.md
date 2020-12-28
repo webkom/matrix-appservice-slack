@@ -78,10 +78,10 @@ ever stuck, you can post a question in the
     `$ yarn start -r -c config/config.yaml -u "http://$HOST:$MATRIX_PORT"`
    or with docker:
    
-   ```sh
-   $ docker run --volume /path/to/config/:/config/ matrixdotorg/matrix-appservice-slack \ 
-      -r -c /config/config.yaml -u "http://$HOST:$MATRIX_PORT" -f /config/slack-registration.yaml
-   ```
+```sh
+$ docker run -v /path/to/config/:/config/ matrixdotorg/matrix-appservice-slack \ 
+    -r -c /config/config.yaml -u "http://$HOST:$MATRIX_PORT" -f /config/slack-registration.yaml
+```
 
 1. Start the actual application service:
 
