@@ -41,6 +41,7 @@ export interface ITeamSyncConfig {
     users?: {
         enabled: boolean;
     };
+    admin_users?: string[];
 }
 
 const TEAM_SYNC_CONCURRENCY = 1;
@@ -516,6 +517,12 @@ export class TeamSyncer {
         plUsers[this.main.botUserId] = 100;
         if (creatorUserId) {
             plUsers[creatorUserId] = 100;
+        }
+        const teamConfig = this.getTeamSyncConfig(teamId, "channel");
+        if (teamConfig && teamConfig.admin_users) {
+            for (const adminUser of teamConfig.admin_users) {
+                plUsers[adminUser] = 100;
+            }
         }
         inviteList = inviteList.filter((s) => s !== creatorUserId || s !== this.main.botUserId);
         inviteList.push(this.main.botUserId);

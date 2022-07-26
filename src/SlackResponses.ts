@@ -82,6 +82,13 @@ export interface ConversationsListResponse extends WebAPICallResult {
 }
 
 /**
+ * Taken from https://api.slack.com/methods/admin.teams.owners.list
+ */
+export interface OwnerListResponse extends WebAPICallResult {
+    owner_ids: string[];
+}
+
+/**
  * Taken from https://api.slack.com/methods/bots.info
  */
 export interface BotsInfoResponse extends WebAPICallResult {
@@ -96,7 +103,7 @@ export interface BotsInfoResponse extends WebAPICallResult {
             image_1024?: string;
             image_512?: string;
             image_192?: string;
-        }
+        };
     };
 }
 
@@ -167,5 +174,5 @@ export interface ConversationsInfo {
  * Taken from https://api.slack.com/methods/files.info
  */
 export interface FileInfoResponse extends WebAPICallResult {
-    file: ISlackFile,
+    file: ISlackFile;
 }
