@@ -519,7 +519,7 @@ export class TeamSyncer {
             plUsers[creatorUserId] = 100;
         }
         const teamConfig = this.getTeamSyncConfig(teamId, "channel");
-        if (teamConfig && teamConfig.admin_users) {
+        if (isPublic && teamConfig && teamConfig.admin_users) {
             for (const adminUser of teamConfig.admin_users) {
                 plUsers[adminUser] = 100;
             }

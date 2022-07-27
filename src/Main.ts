@@ -156,6 +156,7 @@ export class Main {
 
     constructor(public readonly config: IConfig, registration: AppServiceRegistration) {
         this.adminCommands = new AdminCommands(this);
+        log.info("Starting appservice with config: ", config);
 
         if (config.oauth2) {
             const redirectPrefix = config.oauth2.redirect_prefix || config.inbound_uri_prefix;
